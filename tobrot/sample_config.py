@@ -77,6 +77,8 @@ class Config:
     UN_FINISHED_PROGRESS_STR = get_config("UN_FINISHED_PROGRESS_STR", "░")
     # add offensive API
     TG_OFFENSIVE_API = get_config("TG_OFFENSIVE_API", None)
+    #
+    CHANNEL = get_config("CHANNEL", "@EdithBots")
     # URL for the rclone configuration
     R_CLONE_CONF_URI = get_config("R_CLONE_CONF_URI", None)
     # Destination folder for the rclone
