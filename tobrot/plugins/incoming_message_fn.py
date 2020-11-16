@@ -35,6 +35,10 @@ from tobrot.helper_funcs.create_r_o_m import get_markup
 from tobrot.helper_funcs.icntaosrtsba import leech_btn_k
 from tobrot.helper_funcs.fix_tcerrocni_images import proc_ess_image_aqon
 
+import pyrogram
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
+from pyrogram.errors import UserNotParticipant, UserBannedInChannel
+
         
 async def incoming_purge_message_f(client, message):
     """/purge command"""
