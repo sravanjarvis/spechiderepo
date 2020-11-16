@@ -51,6 +51,21 @@ async def incoming_purge_message_f(client, message):
             LOGGER.info(download.remove(force=True))
     await i_m_sefg2.delete()
 
+    # check user status  in channel
+    try:
+        chat = await bot.get_chat_member(Config.CHANNEL, user_id)
+        if chat.status == 'kicked':
+            raise UserBannedInChannel
+    except UserNotParticipant:
+        await update.reply(f'Join {Config.CHANNEL} channel then try again')
+        return
+    except UserBannedInChannel:
+        await  update.reply_text("You are B A N N E D")
+        return
+    except Exception:
+        await update.reply('Unable to verify user channel subscription')
+        return
+
 
 async def incoming_message_f(client, message):
     """/leech command"""
